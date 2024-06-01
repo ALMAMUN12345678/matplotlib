@@ -1,0 +1,18 @@
+d = pd.read_csv('E:/Python_file/data.csv')
+language_counter=Counter()
+for row in d['LanguagesWorkedWith']:
+    language_counter.update(row.split(';'))
+############  For create a list ############
+language=[]
+Value=[]
+for first,second in language_counter.most_common(15):
+    language.append(first)
+    Value.append(second)
+print(language)
+print(Value)
+############ Bar chart of above data #####################
+language.reverse()
+Value.reverse()
+plt.barh(language,Value)
+plt.xlabel('Programming Language')
+plt.title('Number of People who use')
